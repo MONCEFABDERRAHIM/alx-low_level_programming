@@ -1,28 +1,36 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
+
+/* more headers goes there */
+
 /**
- * main - A Program that checks if n is posititive print n is positive
- * if n is negative print n is negative
- * else print n is zero
- * Return: 0 (Success)
+ * main - set n to a random number each time
+ *
+ * Description: set the variable n to a random value
+ * each time the program is excuted
+ *
+ * Return: The number followed by "negative", "positive" or is 0
  */
 int main(void)
 {
-int n;
-srand(time(0));
-n = rand() - RAND_MAX / 2;
-if (n < 0)
-{
-printf("%d is negative\n", n);
-}
-else if (n > 0)
-{
-printf("%d is positive\n", n);
-}
-else
-{
-printf("%d is zero\n", n);
-}
-return (0);
+	int n;
+
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
+	/* your code goes there */
+	if (n > 0)
+	{
+		printf("%d is positive", n);
+	}
+	else if (n < 0)
+	{
+		printf("%d is negative", n);
+	}
+	else
+	{
+		printf("%d is zero", n);
+	}
+	printf("\n");
+	return (0);
 }
