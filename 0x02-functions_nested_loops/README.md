@@ -1,0 +1,1 @@
+In this task, we will learn about nested loops, functions, and their declarations and definitions. We will also cover function prototypes, variable scope, gcc flags, and header files for including in our code.
