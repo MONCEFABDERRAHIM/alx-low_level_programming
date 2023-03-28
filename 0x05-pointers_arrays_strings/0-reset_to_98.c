@@ -1,7 +1,10 @@
-#include "main.h"
+#include <stdio.h>
+
 /**
- * reset_to_98 - A program that reset the variable n to 98
- * @n: a parameter
+ * reset_to_98 - change value of pointer n to 98
+ * @n: pointer
+ * Return: 98
+ *
  */
 void reset_to_98(int *n)
 {
