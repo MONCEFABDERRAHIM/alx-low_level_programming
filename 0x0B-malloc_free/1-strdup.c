@@ -4,43 +4,33 @@
 #include "main.h"
 
 /**
- *	str_concat - concatenate two strings
- *	@s1: string one
- *	@s2: string two
- *	Return: pointer to concatenated string
+ *	_strdup - copy of a string
+ *	@str: input string
+ *	Return: a pointer to copied string
  */
-char *str_concat(char *s1, char *s2)
+char *_strdup(char *str)
 {
-	char *concatenatedString;
-	int s1Len, s2Len, i, j, bothLen;
+	int i, length;
+	char *newStr;
 
-	if (s1 == NULL)
-	{
-		s1 = "";
-	}
-	if (s2 == NULL)
-	{
-		s2 = "";
-	}
-
-	s1Len = strlen(s1);
-	s2Len = strlen(s2);
-
-	concatenatedString = malloc(s1Len + s2Len + 1);
-	if (concatenatedString == NULL)
+	if (str == NULL)
 	{
 		return (NULL);
 	}
-
-	for (i = 0; i < s1Len; i++)
+	else
 	{
-		concatenatedString[i] = s1[i];
-	}
-	for (i = 0, j = s1Len, bothLen = s1Len + s2Len; j < bothLen; i++, j++)
-	{
-		concatenatedString[j] = s2[i];
-	}
-	concatenatedString[s1Len + s2Len] = '\0';
+		length = strlen(str) + 1;
 
-	return (concatenatedString);
+		newStr = malloc(length * sizeof(char));
+		if (newStr == NULL)
+		{
+			return (NULL);
+		}
+
+		for (i = 0; i < length; i++)
+		{
+			newStr[i] = str[i];
+		}
+		return (newStr);
+	}
 }
