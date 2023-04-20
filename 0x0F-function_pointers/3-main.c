@@ -1,55 +1,41 @@
+#include "3-calc.h"
 #include <stdio.h>
-#include "function_pointers.h"
 
 /**
- * is_98 - check if a number is equal to 98
- * @elem: the integer to check
+ * main - a basic calculator
+ * @argc: the size of the argument vector
+ * @argv: the argument vector
  *
- * Return: 0 if false, something else otherwise.
- */
-int is_98(int elem)
-{
-    return (98 == elem);
-}
-
-/**
- * is_strictly_positive - check if a number is greater than 0
- * @elem: the integer to check
+ * Description: This program accepts a number, an operator and another number,
+ * in that order. It performs the specified operation and prints the result to
+ * standard output (followed by a newline). If called with the wrong number of
+ * arguments, it prints "Error" and terminates the process with a status of 98.
+ * If the operator given is not one of '+', '-', '*', '/' or '%', it prints
+ * "Error" and terminates the process with a status of 99. If asked to perform
+ * division by 0 (e.g. using the '/' or '%' operators), it prints "Error" and
+ * terminates the process with a status value of 100.
  *
- * Return: 0 if false, something else otherwise.
+ * Return: Always 0
  */
-int is_strictly_positive(int elem)
+int main(int argc, char *argv[])
 {
-    return (elem > 0);
-}
+	int (*f)(int, int);
 
+	if (argc != 4)
+	{
+		puts("Error");
+		exit(98);
+	}
 
-/**
- * abs_is_98 - check if the absolute value of a number is 98
- * @elem: the integer to check
- *
- * Return: 0 if false, something else otherwise.
- */
-int abs_is_98(int elem)
-{
-    return (elem == 98 || -elem == 98);
-}
+	f = get_op_func(argv[2]);
 
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
-int main(void)
-{
-    int array[20] = {0, -98, 98, 402, 1024, 4096, -1024, -98, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 98};
-    int index;
+	if (!f)
+	{
+		puts("Error");
+		exit(99);
+	}
 
-    index = int_index(array, 20, is_98);
-    printf("%d\n", index);
-    index = int_index(array, 20, abs_is_98);
-    printf("%d\n", index);
-    index = int_index(array, 20, is_strictly_positive);
-    printf("%d\n", index);
-    return (0);
+	printf("%d\n", f(atoi(argv[1]), atoi(argv[3])));
+
+	return (0);
 }

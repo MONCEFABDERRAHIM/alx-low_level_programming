@@ -1,61 +1,65 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "3-calc.h"
+
 /**
- * op_add - returns the sum of a and b
- * @a: num1
- * @b: num2
- * Return: Result
+ * op_add - add
+ * @a: first operand
+ * @b: second operand
+ * Return: the result of the operation
  */
 int op_add(int a, int b)
 {
 	return (a + b);
 }
+
 /**
- * op_sub - returns the difference of a and b.
- * @a: num1
- * @b: num2
- * Return: Result
+ * op_sub - subtract
+ * @a: first operand
+ * @b: second operand
+ * Return: the result of the operation
  */
 int op_sub(int a, int b)
 {
 	return (a - b);
 }
+
 /**
- * op_mul - product of a and b.
- * @a: num1
- * @b: num2
- * Return: Result
+ * op_mul - multiply
+ * @a: first operand
+ * @b: second operand
+ * Return: the result of the operation
  */
 int op_mul(int a, int b)
 {
 	return (a * b);
 }
+
 /**
- * op_div - returns the result of the division of a by b
- * @a: num1
- * @b: num2
- * Return: Result
+ * op_div - divide
+ * @a: first operand
+ * @b: second operand
+ * Return: the result of the operation
  */
 int op_div(int a, int b)
 {
-	if (b == 0)
+	if (!b)
 	{
-		printf("Error\n");
+		puts("Error");
 		exit(100);
 	}
 	return (a / b);
 }
+
 /**
- * op_mod - returns the remainder of the division of a by b.
- * @a: num1
- * @b: num2
- * Return: Result
+ * op_mod - modulo
+ * @a: first operand
+ * @b: second operand
+ * Return: the result of the operation
  */
 int op_mod(int a, int b)
 {
-	if (b == 0)
+	if (!b)
 	{
-		printf("Error\n");
+		puts("Error");
 		exit(100);
 	}
 	return (a % b);
